@@ -17,7 +17,9 @@
 
 // STEP 1: Get the "Shout" button by its ID ("btnShout")
 //         using document.getElementById()
-
+document.getElementById("btnShout").addEventListener('click', function(){
+    outShout.innerHTML = shoutInput.value.toUpperCase() + "!";
+});
 // STEP 2: Add a click event listener to the button.
 //         Inside the listener function:
 //         a) Get the text from the input with ID "shoutInput"
@@ -28,7 +30,6 @@
 //            using .innerHTML
 //
 //         Example: "hello" → "HELLO!"
-
 
 // ============================================
 //  MAIN: Pizza Builder
@@ -43,7 +44,49 @@
 // STEP 3: Get the "Calculate Total" button by ID ("btnCalc")
 //         Add a click event listener.
 //         Inside the listener:
+    calcBtn = document.getElementById("btnCalc").addEventListener('click', function(){
+        size = document.getElementsByName("rg");
+        for (i = 0; i < size.length; i++) {
+            if(size[i].checked) {
+                sizeCost = parseFloat(size[i].value);
+            } }
+        toppings = document.getElementsByName("cb");
+        let count = 0;
+        for (i=0; i < size.length; i++) {
+            if(toppings[i].checked) {
+                count += 1;
+            }
+            toppingsCost = count * 0.50;
+        }
+        service = document.getElementById("serviceSelect").value;
+        if (service == "dinein") {
+            serviceCost = 0
+        }
+        else if (service == "takeout") {
+            serviceCost = 1.50
+        }
+        else {
+            serviceCost = 3.00
+        }
+        totalCost = sizeCost + toppingsCost + serviceCost
 
+        name = document.getElementById("myInput").value;
+        if (name == " ") {
+            myPara.innerHTML = "Customer, your total is " + totalCost.toFixed(2);
+        }
+        else {
+            myPara.innerHTML = name + ", your total is " + totalCost.toFixed(2);
+        clear = document.getElementById("clearBtn").addEventListener('click', function(){
+            myInput.innerHTML = "";
+            largeRadio = document.getElementById("r3");
+            largeRadio.checked = true;
+            for (i = 0; i < toppings.length; i++) {
+                toppings[i].checked = false;
+            }
+            myPara.innerHTML = ""
+        });
+        }
+    });
 //   a) Get the selected size price:
 //      Use document.getElementsByName("rg") to get all
 //      size radio buttons. Loop through them to find the
