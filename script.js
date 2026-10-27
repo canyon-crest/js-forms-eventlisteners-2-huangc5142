@@ -58,7 +58,7 @@ document.getElementById("btnShout").addEventListener('click', function(){
             }
             toppingsCost = count * 0.50;
         }
-        service = document.getElementById("serviceSelect").value;
+        let service = document.getElementById("serviceSelect").value;
         if (service == "dinein") {
             serviceCost = 0
         }
@@ -76,17 +76,20 @@ document.getElementById("btnShout").addEventListener('click', function(){
         }
         else {
             myPara.innerHTML = name + ", your total is " + totalCost.toFixed(2);
-        clear = document.getElementById("clearBtn").addEventListener('click', function(){
-            myInput.innerHTML = "";
-            largeRadio = document.getElementById("r3");
-            largeRadio.checked = true;
-            for (i = 0; i < toppings.length; i++) {
-                toppings[i].checked = false;
-            }
-            myPara.innerHTML = ""
-        });
+
         }
     });
+
+    clear = document.getElementById("clearBtn").addEventListener('click', function(){
+        myInput.value = "";
+        largeRadio = document.getElementById("r3");
+        largeRadio.checked = true;
+        for (i = 0; i < toppings.length; i++) {
+            toppings[i].checked = false;
+        }
+        serviceSelect.value = "dinein";
+        myPara.innerHTML = "";
+        });
 //   a) Get the selected size price:
 //      Use document.getElementsByName("rg") to get all
 //      size radio buttons. Loop through them to find the
