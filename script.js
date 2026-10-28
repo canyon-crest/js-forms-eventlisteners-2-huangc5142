@@ -80,7 +80,7 @@ document.getElementById("btnShout").addEventListener('click', function(){
         }
     });
 
-    clear = document.getElementById("clearBtn").addEventListener('click', function(){
+    document.getElementById("clearBtn").addEventListener('click', function(){
         myInput.value = "";
         largeRadio = document.getElementById("r3");
         largeRadio.checked = true;
