@@ -50,7 +50,7 @@ document.getElementById("btnShout").addEventListener('click', function(){
             if(size[i].checked) {
                 sizeCost = parseFloat(size[i].value);
             } }
-        toppings = document.getElementsByName("cb");
+        let toppings = document.getElementsByName("cb");
         let count = 0;
         for (i=0; i < size.length; i++) {
             if(toppings[i].checked) {
@@ -84,6 +84,7 @@ document.getElementById("btnShout").addEventListener('click', function(){
         myInput.value = "";
         largeRadio = document.getElementById("r3");
         largeRadio.checked = true;
+        let toppings = document.getElementsByName("cb");
         for (i = 0; i < toppings.length; i++) {
             toppings[i].checked = false;
         }
